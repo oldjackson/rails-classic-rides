@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226182824) do
+ActiveRecord::Schema.define(version: 20180226191741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.string "make"
+    t.string "model"
+    t.integer "year"
+    t.text "description"
+    t.integer "number_seats"
+    t.boolean "convertible", default: false
+    t.integer "price_day"
+    t.boolean "driver_left", default: true
+    t.boolean "automatic", default: false
+    t.boolean "chauffeur", default: false
+    t.string "location"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,4 +52,5 @@ ActiveRecord::Schema.define(version: 20180226182824) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cars", "users"
 end

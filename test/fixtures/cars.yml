@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  model: MyString
+  year: 1
+  description: MyText
+  number_seats: 1
+  convertible: false
+  price_day: 1
+  driver_left: false
+  automatic: false
+  chauffeur: false
+  location: MyString
+  user: one
+
+two:
+  make: MyString
+  model: MyString
+  year: 1
+  description: MyText
+  number_seats: 1
+  convertible: false
+  price_day: 1
+  driver_left: false
+  automatic: false
+  chauffeur: false
+  location: MyString
+  user: two
