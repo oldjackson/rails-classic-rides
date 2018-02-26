@@ -12,7 +12,7 @@ class CreateCars < ActiveRecord::Migration[5.1]
       t.boolean :automatic
       t.boolean :chauffeur
       t.string :location
-      t.references :owner, foreign_key: true
+
 
       t.timestamps
     end
