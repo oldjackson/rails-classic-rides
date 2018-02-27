@@ -8,4 +8,7 @@ class Car < ApplicationRecord
   validates :description, presence: true
   validates :price_day, presence: true
   validates :location, presence: true
+  validates :number_seats, presence: true
+
+  mount_uploader :photo, PhotoUploader
 end
