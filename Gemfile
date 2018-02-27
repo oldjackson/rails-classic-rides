@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
+gem 'devise-bootstrap-views'
 
 gem 'faker'
 
