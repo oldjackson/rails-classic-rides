@@ -36,6 +36,8 @@ description = ["Your muscle car of choice",\
   "Elvis knew his stuff"
 ]
 
+cars = []
+
 (0...10).each do |i|
   car = Car.new(
     make: makes[i],
@@ -47,5 +49,22 @@ description = ["Your muscle car of choice",\
     location: Faker::Address.city,
     user: users.sample
   )
+  cars << car
   car.save!
+end
+
+6.times do
+  user = users.sample
+  other_cars = cars.reject{ |car| car.user == user }
+  other_car = other_cars.sample
+  start_date = Faker::Date.forward(365)
+  days = (0..6).to_a.sample
+  booking = Booking.new(
+    user: user,
+    car: other_car,
+    start_date: start_date,
+    end_date: start_date + days,
+    total_price: days * other_car.price_day
+  )
+  booking.save!
 end
