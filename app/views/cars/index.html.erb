@@ -1,5 +1,5 @@
 <h1>Classic Rides</h1>
 
 <%  @cars.each do |car| %>
-  <div><%= car.make car.model car.year %></div>
+  <div><%= "#{@car.make} #{@car.model} #{@car.year}" %></div>
 <% end %>
