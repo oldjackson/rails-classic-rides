@@ -64,7 +64,7 @@ end
     car: other_car,
     start_date: start_date,
     end_date: start_date + days,
-    total_price: days * other_car.price_day
+    total_price: (days + 1) * other_car.price_day
   )
   booking.save!
 end
