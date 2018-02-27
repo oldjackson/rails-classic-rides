@@ -1,1 +1,69 @@
-<h1><%= "#{@car.make} #{@car.model} #{@car.year}" %></h1>
+<div class="container">
+  <div>
+    <h1><%= "#{@car.year} #{@car.make} #{@car.model}" %></h1>
+  </div>
+
+  <div>
+    <div>
+      <%= cl_image_tag @car.photo, height: 600, width: 800, crop: :fill %>
+    </div>
+
+    <div class="container text-center">
+      <div class="grid">
+        <div class="card description">
+          <div class="card-content">
+            <h2>Car intro</h2>
+            <p><%= @car.description %> </p>
+          </div>
+        </div>
+        <div class="card price">
+          <div class="card-content">
+            <h3>Price</h3>
+            <p><%= "#{@car.price_day} €/day" %></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Seats</h3>
+            <p><%= @car.number_seats %></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Bodywork</h3>
+            <p><%= @car.convertible ? "Convertible" : "Closed" %></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Drive hand</h3>
+            <p>
+              <%= @car.driver_left ? "Left" : "Right" %>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Gear shift</h3>
+            <p>
+              <%= @car.automatic ? "Auto" : "Stick" %>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Driver</h3>
+            <p>
+              <%= @car.chauffeur ? "Available" : "--" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+    <%= link_to "Back to index", cars_path %>
+  </div>
+</div>
