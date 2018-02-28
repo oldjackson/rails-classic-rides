@@ -6,12 +6,12 @@
         <%= link_to car_path(car) do %>
           <div class="card">
             <div class="thumb-wrapper">
-              <% if car.photo.file.nil? %>
+              <% if car.car_photos[car.cover_photo].nil? %>
                 <div class="empty-thumbnail">
                   <p>-- No picture --</p>
                 </div>
               <% else %>
-                <div class="pic-thumbnail" style="background-image: url(<%= car.photo.url(:thumbnail) %>);"></div>
+                <div class="pic-thumbnail" style="background-image: url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);"></div>
               <% end %>
             </div>
             <div class="car-label">

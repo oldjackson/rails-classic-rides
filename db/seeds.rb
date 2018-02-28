@@ -20,8 +20,8 @@ users = []
   user.save!
 end
 
-makes = %w(Ford Ferrari Fiat Renault Chevrolet Nissan Jaguar Alfa\ Romeo Mercedes-Benz BMW)
-models = %w(Mustang\ GT Testarossa Dino\ Coupé Alpine Corvette 280Z E-type Giulia\ GT\ Junior 280SL 507)
+makes = %w(Ford Ferrari Fiat Alpine Chevrolet Nissan Jaguar Alfa\ Romeo Mercedes-Benz BMW)
+models = %w(Mustang\ GT Testarossa Dino\ Coupé A110 Corvette 280Z E-type Giulia\ GT\ Junior 280SL 507)
 years = [1968, 1986, 1977, 1970, 1978, 1976, 1962, 1966, 1970, 1959]
 number_seats = [4, 2, 4, 2, 2, 4, 2, 4, 2, 2]
 description = ["Your muscle car of choice",\
@@ -35,10 +35,22 @@ description = ["Your muscle car of choice",\
   "An everyday, unassumingly gorgeous wagen",
   "Elvis knew his stuff"
 ]
+car_photos_url = ['https://assets.hemmings.com/story_image/605267-1000-0',\
+    'https://www.carpixel.net/w/5c43caab635a9852f8319eed532d5d04/ferrari-testarossa-car-wallpaper-70775.jpg',\
+    'https://www.classicdriver.com/sites/default/files/cars_images/113_1_1.jpg',\
+    'https://rmsothebys-cache.azureedge.net/5/1/b/1/2/d/51b12dc834603e3992f790679c7941a76dca3852.jpg',\
+    'http://carphotos.cardomain.com/ride_images/3/2972/1801/32428400003_original.jpg',\
+    'http://cloudlakes.com/data_images/models/nissan-280z/nissan-280z-01.jpg',\
+    'https://www.hagertyinsurance.co.uk/price-guide/Content/VehicleImages/Jaguar%20E%20Type%20S1%20FHC%20front.jpg',\
+    'http://car-from-uk.com/ebay/carphotos/full/ebay268631.jpg',\
+    'http://classicinvest.com/wp-content/uploads/2012/05/DSCN04453.jpg',\
+    'https://rmsothebys-cache.azureedge.net/7/3/c/1/a/c/73c1acfacedfdd8b4ef6a6bc67a48b5645cfd6a2.jpg'
+]
 
 cars = []
 
 (0...10).each do |i|
+
   car = Car.new(
     make: makes[i],
     model: models[i],
@@ -49,6 +61,7 @@ cars = []
     location: Faker::Address.city,
     user: users.sample
   )
+  car.car_photos = [CarPhoto.create(remote_photo_url: car_photos_url[i])]
   cars << car
   car.save!
 end
