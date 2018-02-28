@@ -1,4 +1,32 @@
-<h1>Classic Rides</h1>
-<%  @cars.each do |car| %>
-  <div><%= "#{@car.make} #{@car.model} #{@car.year}" %></div>
-<% end %>
+<div class="container">
+  <h1 class="text-center">Classic Rides</h1>
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 full-padded">
+        <%= link_to car_path(car) do %>
+          <div class="card">
+            <div class="thumb-wrapper">
+              <% if car.photo.file.nil? %>
+                <div class="empty-thumbnail">
+                  <p>-- No picture --</p>
+                </div>
+              <% else %>
+                <div class="pic-thumbnail" style="background-image: url(<%= car.photo.url(:thumbnail) %>);"></div>
+              <% end %>
+            </div>
+            <div class="car-label">
+              <p><%= "#{car.make} #{car.model}" %></p>
+              <p><%= "#{car.year}" %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <div class="text-center">
+    <%= link_to "Add a new car", new_car_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+

@@ -1,0 +1,32 @@
+// Import your layouts CSS files here.
+// Examples:
+// @import "dashboard";
+// @import "profile";
+// @import "map";
+/* TODO: design a CSS grid layout for user dashboard */
+@media(min-width: 720px) {
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .description{
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 3;
+  }
+
+  .price{
+    grid-row: 1 / span 1;
+    grid-column: 4 / span 2;
+  }
+}
+
+
+.main p {
+  color: #666666;
+}
+
+.main btn {
+  border-radius: 0;
+}
