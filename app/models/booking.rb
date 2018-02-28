@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
     :end_date_cannot_be_before_start_date
   validates :status, inclusion: {in: %w(pending accepted declined ongoing completed)}
 
-  validates :total_price, presence: true, numericality: { greater_than: 0}
+  validates :total_price, presence: true
 
   private
 
