@@ -19,7 +19,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
 
     if @car.save
-      redirect to @car
+      redirect_to car_path(@car)
     else
       render :new
     end
