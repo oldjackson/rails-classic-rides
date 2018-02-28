@@ -1,29 +1,29 @@
 class BookingsController < ApplicationController
-before_action :set_car, only: [:create, :edit]
-before_action :user
+  before_action :set_car, only: [:create, :edit]
+  before_action :user
   def new
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user_id = @user.id
-    @booking.car_id = @car.id
+    @booking.user = @user
+    @booking.car = @car
     if @booking.save
-      redirect_to @car
+      redirect_to car_path(@car)
     else
       render :new
     end
   end
 
-private
+  private
 
- def user
-  @user = current_user
+  def user
+    @user = current_user
   end
 
   def set_car
-  @car = Car.find(params[:car_id])
+    @car = Car.find(params[:car_id])
   end
 
   def booking_params
