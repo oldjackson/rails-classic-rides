@@ -21,6 +21,12 @@
   border-radius: 5px;
 }
 
+.empty-picture {
+  height: 600px;
+  width: 800px;
+  border-radius: 10px;
+}
+
 a:hover {
   text-decoration: none;
   color: red;
@@ -33,7 +39,7 @@ a:hover {
   }
 }
 
-.empty-thumbnail {
+.empty-thumbnail, .empty-picture {
   border: 1px solid black;
   display:flex;
   align-items: center;

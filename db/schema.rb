@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227122135) do
+ActiveRecord::Schema.define(version: 20180228113818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20180227122135) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "car_photos", force: :cascade do |t|
+    t.bigint "car_id"
+    t.text "caption"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_car_photos_on_car_id"
+  end
+
   create_table "cars", force: :cascade do |t|
     t.string "make"
     t.string "model"
@@ -43,7 +52,7 @@ ActiveRecord::Schema.define(version: 20180227122135) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
+    t.integer "cover_photo", default: 0
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
@@ -69,5 +78,6 @@ ActiveRecord::Schema.define(version: 20180227122135) do
 
   add_foreign_key "bookings", "cars"
   add_foreign_key "bookings", "users"
+  add_foreign_key "car_photos", "cars"
   add_foreign_key "cars", "users"
 end
