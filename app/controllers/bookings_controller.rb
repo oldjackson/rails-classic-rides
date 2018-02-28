@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.car = @car
     if @booking.save
-      redirect_to car_path(@car)
+      redirect_to car_path(@car), notice: "Your booking is pending confirmation"
     else
       render :new
     end
