@@ -1,22 +1,21 @@
 <div class="container">
-  <div>
+  <div class="car-name text-center">
     <h1><%= "#{@car.year} #{@car.make} #{@car.model}" %></h1>
   </div>
 
   <div>
-
     <% if @car.car_photos[@car.cover_photo].nil? %>
       <div class="empty-picture"">
         <p>-- No picture --</p>
       </div>
     <% else %>
-      <div>
-        <%= cl_image_tag @car.car_photos[@car.cover_photo].photo, height: 600, width: 800, crop: :fill %>
+      <div class="car-photo text-center">
+        <%= cl_image_tag @car.car_photos[@car.cover_photo].photo, height: 600, width: 800, crop: :fill, :radius=>50 %>
       </div>
     <% end %>
+  </div>
 
-
-    <div class="container text-center">
+    <div class="container car-text">
       <div class="car-information">
         <div class="card-description">
           <h4>Meet Your Dream Ride</h4>
@@ -41,7 +40,7 @@
       </div>
     </div>
 
-  </div>
+
 
   <div>
     <%= link_to "Back to Search Results", cars_path, class: "btn" %>

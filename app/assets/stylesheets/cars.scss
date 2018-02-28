@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .text-center {
-  font-family: 'Lobster', cursive;
+  // font-family: 'Lobster', cursive;
   margin-top: 30px;
   margin-bottom: 20px;
   font-size: 50px;
@@ -95,4 +95,23 @@ a:hover {
 .btn:hover {
   color: black;
   background-color: rgba(125, 30, 27, 0.9);
+}
+
+.car-photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px
+}
+
+.car-name h1 {
+  font-family: 'Lobster', cursive;
+  padding: 10px;
+}
+
+.card-description h4 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 60px ;
+  color: black;
+  // text-shadow: 1px 1px 15px #000000;
 }
