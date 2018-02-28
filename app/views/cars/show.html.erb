@@ -4,9 +4,17 @@
   </div>
 
   <div>
-    <div class="car-photo">
-      <%= cl_image_tag @car.photo, height: 600, width: 800, crop: :fill %>
-    </div>
+
+    <% if @car.car_photos[@car.cover_photo].nil? %>
+      <div class="empty-picture"">
+        <p>-- No picture --</p>
+      </div>
+    <% else %>
+      <div>
+        <%= cl_image_tag @car.car_photos[@car.cover_photo].photo, height: 600, width: 800, crop: :fill %>
+      </div>
+    <% end %>
+
 
     <div class="container text-center">
       <div class="car-information">

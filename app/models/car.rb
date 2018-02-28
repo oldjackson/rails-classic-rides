@@ -1,6 +1,7 @@
 class Car < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :car_photos
 
   validates :make, presence: true
   validates :model, presence: true
@@ -8,7 +9,7 @@ class Car < ApplicationRecord
   validates :description, presence: true
   validates :price_day, presence: true
   validates :location, presence: true
-  validates :number_seats, presence: true
+  validates :number_seats, presence: true, inclusion: {in: [2,3,4,5,6]}
+  validates :cover_photo, numericality: { greater_than: -1}
 
-  mount_uploader :photo, PhotoUploader
 end
