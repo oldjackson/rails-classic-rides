@@ -12,8 +12,11 @@
   <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.css">
+  <link href="https://fonts.googleapis.com/css?family=Cabin:400,700|Lobster" rel="stylesheet">
 </head>
 <body>
+  <%= render "layouts/navbar" %>
+
   <%= yield %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application' %>

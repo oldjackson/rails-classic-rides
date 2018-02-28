@@ -1,13 +1,25 @@
 /* Main navbar */
 .navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.7),0 1px 0 0 rgba(0,0,0,0.3);
+  background: linear-gradient(#ada5a5, #000000);
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: white;
+}
+
+.header_h1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.header_h1 h1{
+  font-family: 'Lobster', cursive;
+  color: white;
+  font-size: 45px;
 }
 
 /* Logo */
@@ -26,7 +38,8 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: flex-end;
 }
 
 /* Basic navbar item */
@@ -37,11 +50,12 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: #dadada;
+  font-size: 15px;
+  font-family: 'Cabin', sans-serif;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #b13e3e;
   text-decoration: none;
 }
 

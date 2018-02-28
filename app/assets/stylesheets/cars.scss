@@ -1,9 +1,18 @@
 // Place all the styles related to the Cars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.text-center {
+  font-family: 'Lobster', cursive;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 50px;
+  color: rgb(125, 30, 27);
+}
+
 .card {
   // margin: 10px 0;
-  background-color: white;
+  // background-color: white;
+  background: linear-gradient(#ada5a5, #000000);
   border-radius: 10px;
   box-shadow: 5px 5px 3px rgba(0,0,0,0.1);
 }
@@ -49,10 +58,35 @@ a:hover {
 }
 
 .car-label{
-  padding-bottom: 10px;
+
+  padding-bottom: 5px;
   text-align: center;
+  color: rgb(230, 230, 230);
   p{
     margin: 0;
     font-size: 20px;
+    font-family: 'Cabin', sans-serif;
+    // font-weight: bold;
   }
+}
+
+.car-details {
+  font-size: 15px;
+  font-family: 'Cabin', sans-serif;
+  color: rgb(200, 200, 200);
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.btn{
+  color: white;
+  background-color: rgb(125, 30, 27);
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px !important;
+  padding: 20px !important;
+}
+
+.btn:hover {
+  color: black;
+  background-color: rgba(125, 30, 27, 0.9);
 }
