@@ -20,8 +20,8 @@ users = []
   user.save!
 end
 
-makes = %w(Ford Ferrari Fiat Alpine Chevrolet Nissan Jaguar Alfa\ Romeo Mercedes-Benz BMW Mercedes-Benz Alfa\ Romeo Ferrari Dodge Lancia Maserati Ford Citroën De\ Tomaso Ford)
-models = %w(Mustang\ GT Testarossa Dino\ Coupé A110 Corvette 280Z E-type Giulia\ GT\ Junior 280SL 507 300SL Giulia\ TI\ Super 365\ GTB/4\ Daytona Charger\ RT Aurelia\ B24\ Spider Ghibli GT40 DS Pantera Mustang\ Fastback)
+makes = %w(Ford Ferrari Fiat Alpine Chevrolet Nissan Jaguar Alfa\ Romeo Mercedes-Benz BMW Mercedes-Benz Alfa Ferrari Dodge Lancia Maserati Ford Citroën De\ Tomaso Ford)
+models = %w(Mustang\ GT Testarossa Dino\ Coupé A110 Corvette 280Z E-type Giulia\ GT\ Junior 280SL 507 300SL Giulia\ TI\ Super 365\ Daytona Charger\ RT Aurelia\ B24 Ghibli GT40 DS Pantera Mustang\ Fastback)
 years = [1968, 1986, 1977, 1970, 1978, 1976, 1962, 1966, 1970, 1959, 1956, 1972, 1970, 1969, 1962, 1971, 1966, 1960, 1972, 1965]
 number_seats = [4, 2, 4, 2, 2, 4, 2, 4, 2, 2, 2, 5, 2, 4, 2, 4, 2, 5, 2, 4]
 description = ["Your muscle car of choice",\
@@ -69,7 +69,7 @@ car_photos_url = ['https://assets.hemmings.com/story_image/605267-1000-0',\
 
 cars = []
 
-(0...10).each do |i|
+(0...20).each do |i|
 
   car = Car.new(
     make: makes[i],
