@@ -1,8 +1,25 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
+  # def index
+  #   @cars = Car.all
   def index
-    @cars = Car.all
+    make_cars = Car.all
+    model_cars = Car.all
+    location_cars = Car.all
+
+    if params[:make]
+      make_cars = Car.where('LOWER(make) LIKE LOWER(?)', "%#{params[:make]}%")
+    end
+    if params[:model]
+      model_cars = Car.where('LOWER(model) LIKE LOWER(?)', "%#{params[:model]}%")
+    end
+    if params[:location]
+      location_cars = Car.where('LOWER(location) LIKE LOWER(?)', "%#{params[:location]}%")
+    end
+
+    @cars = make_cars & model_cars & location_cars
+
   end
 
   def show
@@ -40,13 +57,13 @@ class CarsController < ApplicationController
 
   private
 
-    def set_car
-      @car = Car.find(params[:id])
-    end
+  def set_car
+    @car = Car.find(params[:id])
+  end
 
-    def car_params
-      params.require(:car).permit(:make, :model, :year, :description, :price_day, :location, :number_seats, :photo)
-    end
+  def car_params
+    params.require(:car).permit(:make, :model, :year, :description, :price_day, :location, :number_seats, :photo)
+  end
 
 
 end
