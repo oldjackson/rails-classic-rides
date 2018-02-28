@@ -18,8 +18,9 @@
       </div>
 
       <div class="card-description">
-        <h5><%= "The owner #{@car.user.first_name} says... This car is #{@car.description}." %></h5>
-        <h6><i class="  fas fa-euro-sign"></i><%= " #{@car.price_day}  " %><i class="  fas fa-map-marker-alt"></i><%= " #{@car.location}" %></h6>
+        <h5><%= "The owner #{@car.user.first_name} says..."%></h5>
+        <p style="text-indent: 50px; font-size: 30px;"><%= "\"#{@car.description}\"" %></p>
+        <h6><i class="fas fa-euro-sign"></i><%= " #{@car.price_day}  - " %><i class="fas fa-map-marker-alt"></i><%= " #{@car.location}" %></h6>
       </div>
 <br>
       <div class="card-details">
