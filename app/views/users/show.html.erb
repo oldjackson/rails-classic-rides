@@ -1,0 +1,14 @@
+<div class="container">
+  <div>
+    <%# binding.pry %>
+    <% if @user.photo.file.nil? %>
+      <div class="empty-picture"">
+        <p>-- No picture --</p>
+      </div>
+    <% else %>
+      <div class="user-photo text-center">
+        <%= cl_image_tag @user.photo, height: 400, width: 300, crop: :fill, :radius=>10 %>
+      </div>
+    <% end %>
+  </div>
+</div>
