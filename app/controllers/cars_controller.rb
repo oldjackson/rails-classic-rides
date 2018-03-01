@@ -21,6 +21,7 @@ class CarsController < ApplicationController
   end
 
   def create
+    photo= CarPhoto.new(params[:photo])
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
@@ -39,8 +40,9 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @car.destroy
-    redirect_to cars
+    redirect_to cars_path
   end
 
   private
