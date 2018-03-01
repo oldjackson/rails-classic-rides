@@ -10,7 +10,11 @@ class CarsController < ApplicationController
   end
 
   def new
-    @car = Car.new
+    if user_signed_in?
+      @car = Car.new
+    else
+      redirect_to cars_path, alert: "To post a new car for renting you need to sign in."
+    end
   end
 
   def edit

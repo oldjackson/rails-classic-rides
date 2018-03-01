@@ -1,0 +1,193 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.text-center {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 50px;
+  color: rgb(125, 30, 27);
+}
+
+.main-container {
+  display: flex;
+}
+
+.container h1{
+  font-family: $body-font;
+}
+
+.card {
+}
+
+.full-padded {
+  padding: 15px;
+}
+
+.thumb-wrapper{
+  padding: 10px;
+}
+
+.empty-thumbnail, .pic-thumbnail {
+  height: 226px;
+  border-radius: 5px;
+}
+
+.empty-picture {
+  height: 400px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: red;
+  .empty-thumbnail p
+  {
+    color: gray;
+  }
+  .card{
+    box-shadow: 7px 7px 4px  rgba(0,0,0,0.2);
+  }
+}
+
+.empty-thumbnail, .empty-picture {
+  border: 1px solid black;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  p{
+    color: gray;
+  }
+}
+
+.pic-thumbnail {
+  background-size: cover;
+  background-position: center;
+}
+
+.user-label{
+
+  padding-bottom: 5px;
+  text-align: center;
+  color: rgb(230, 230, 230);
+  p{
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Cabin', sans-serif;
+    // font-weight: bold;
+  }
+}
+
+.user-details {
+  font-size: 15px;
+  font-family: 'Cabin', sans-serif;
+  color: rgb(200, 200, 200);
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.btn{
+  color: white;
+  background-color: rgb(125, 30, 27);
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px !important;
+  padding: 20px !important;
+}
+
+.btn-md{
+  color: white;
+  background-color: rgb(125, 30, 27);
+  font-family: 'Cabin', sans-serif;
+  font-size: 15px !important;
+  padding: 10px !important;
+}
+
+.btn:hover {
+  color: black;
+  background-color: rgba(125, 30, 27, 0.9);
+}
+
+.user-photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px
+}
+
+.user-information h1 {
+  // font-family: 'Lobster', cursive;
+  font-size: 45px;
+  margin-top: 10px;
+}
+
+.container .car-text {
+  padding-left: 200px;
+}
+.card-description h4 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 35px ;
+  color: black;
+  text-decoration-line: underline;
+  // text-decoration-style: wavy;
+  text-decoration-color: rgb(200, 200, 200);
+
+  // text-shadow: 1px 1px 15px #000000;
+}
+.card-description {
+  font-family: 'Cabin', sans-serif;
+  color: rgb(100, 100, 100);
+  // text-shadow: 1px 1px 15px #000000;
+}
+.card-description h5 {
+  font-size: 25px ;
+}
+.card-description h6 {
+  font-size: 20px ;
+}
+
+.card-description p {
+  font-size: 18px ;
+}
+
+.card-details h5 {
+  font-family: 'Cabin', sans-serif;
+  color: rgb(100, 100, 100);
+  // text-shadow: 1px 1px 15px #000000;
+}
+.card-details h5 {
+  font-size: 25px ;
+  // text-shadow: 1px 1px 15px #000000;
+}
+
+.card-details p {
+  font-size: 18px ;
+  color: rgb(100, 100, 100);
+  // text-shadow: 1px 1px 15px #000000;
+}
+
+.verticalLine {
+  border-right: thin solid rgb(200, 200, 200);
+
+}
+
+.btn-back{
+  color: white;
+  background-color: rgb(160, 160, 160);
+  font-family: 'Cabin', sans-serif;
+  font-size: 15px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.btn-back:hover {
+  color: black;
+  background-color: rgba(125, 30, 27, 0.9);
+}
+
+.btn-search{
+  color: white;
+  background-color: rgb(125, 30, 27);
+  font-family: 'Cabin', sans-serif;
+  font-size: 15px !important;
+  padding: 5px !important;
+}

@@ -1,0 +1,40 @@
+<div class="container">
+  <h1><%= "Hi #{@user.first_name}!" %></h1>
+  <div class="main-container full-padded">
+    <div id="profile" class="full-padded">
+
+      <% if @user.photo.file.nil? %>
+        <div class="empty-picture"">
+          <p>-- No picture --</p>
+        </div>
+      <% else %>
+        <div class="user-photo text-center">
+          <%= cl_image_tag @user.photo, height: 270, width: 200, crop: :fill, :radius=>10 %>
+        </div>
+      <% end %>
+      <div id="info" class="full-padded">
+        <!-- <ul> -->
+          <p><%= "First name: #{@user.first_name}" %></p>
+          <p><%= "Last name: #{@user.last_name}" %></p>
+        <!-- </ul> -->
+        <%= link_to "Change credentials...", "\#", class: "btn-sm" %>
+      </div>
+    </div>
+    <div style="flex: 1 0 auto; border: red solid 2px;">
+      <div class="full-padded center">
+        <%= link_to "Add a new car", new_car_path, class: "btn-md" %>
+      </div>
+      <div id="cars" style="border: green solid 2px;" class="full-padded">
+        <% if @user.cars.empty? %>
+          No cars yet...
+        <% else %>
+          <% @user.cars.each do |car| %>
+          <div class="car" style="border: solid blue 2px; height: 256px;">
+            <%= link_to "Remove car", car_path(car), class: "btn-sm", method: :delete %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
