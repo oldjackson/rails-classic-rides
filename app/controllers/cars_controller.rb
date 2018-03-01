@@ -3,7 +3,7 @@ class CarsController < ApplicationController
 
 
   def index
-    @cars = params[:search] == "" ? Car.all : Car.search(params[:search])
+    @cars = params[:search].nil? || params[:search].strip.empty? ? Car.all : Car.search(params[:search])
   end
 
   def show
