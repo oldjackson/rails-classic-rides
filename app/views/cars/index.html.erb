@@ -1,11 +1,7 @@
 <div class="container">
-
-
   <h1 class="text-center">Let the fun begin...</h1>
   <br>
   <div class="row">
-
-
     <div class="col-sm-8 col-sm-offset-2">
       <div class="row">
         <%= form_tag cars_path, method: :get do %>
@@ -20,12 +16,14 @@
         <% end %>
       </div>
     </div>
+  </div>
+</div>
 
 
-<!--   <div class="container">
-    <div class="row"> -->
+<div class="container-map">
+    <div class="row">
       <% @cars.each do |car| %>
-        <div class="col-xs-12 col-sm-4 full-padded">
+        <div class="col-xs-12 col-sm-6 full-padded">
           <%= link_to car_path(car) do %>
             <div class="card">
               <div class="thumb-wrapper">
@@ -59,8 +57,9 @@
       </div>
       <% end %>
     </div>
+
     <% end %>
   </div>
-
-  <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
+  <div id="map" data-markers="<%= @markers.to_json %>"></div>
 </div>
+
