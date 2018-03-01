@@ -11,9 +11,11 @@
   </div>
 
     <div class="container-show car-text">
-      <div class="car-information">
-        <h1><%= "#{@car.year} #{@car.make} #{@car.model}" %></h1>
-      </div>
+        <div class="car-information">
+          <div class="row">
+            <h1><%= "#{@car.year} #{@car.make} #{@car.model}" %></h1>
+          </div>
+        </div>
       <div class="car-icons">
         <p><i class="fas fa-users"></i><%= " #{@car.number_seats}  " %></p>
         <p><i class="far fa-circle"></i> <%= @car.driver_left ? "Left" : "Right" %></p>
@@ -23,7 +25,7 @@
       </div>
 
       <div class="card-description">
-        <h5><%= "Owner #{@car.user.first_name} says... #{@car.description}." %></h5>
+        <p><%= "Owner #{@car.user.first_name} says... #{@car.description}." %></p>
       </div>
 <br>
 
