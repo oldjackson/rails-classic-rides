@@ -1,53 +1,51 @@
-
-
-  <div class="container">
-    <h1 class="text-center">Let the fun begin...</h1>
-    <br>
-    <div class="container col-sm-10 col-sm-offset-2">
-      <%= form_tag(cars_path, method: :get) do %>
-        <%= label_tag(:make, "Make") %>
-        <%= text_field_tag :make, params[:make] %>
-        <%= label_tag(:make, "Model") %>
-        <%= text_field_tag :model, params[:model] %>
-        <%= label_tag(:make, "Location") %>
-        <%= text_field_tag :location, params[:location] %>
-        <%= submit_tag 'Search', name: nil, class: "btn-search" %>
-      <% end %>
+<div class="container">
+  <h1 class="text-center">Let the fun begin...</h1>
+  <br>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="row">
+        <%= form_tag cars_path, method: :get do %>
+        <div class="col-xs-9">
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Make, model, location ..." %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <%= submit_tag 'Search', name: nil, class: "btn btn-search btn-block" %>
+        </div>
+        <% end %>
+      </div>
     </div>
-    <!-- <br> -->
+  </div>
 
-    <div class="container">
-    <div class="row">
-      <% @cars.each do |car| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 full-padded">
-          <%= link_to car_path(car) do %>
-            <div class="card">
-              <div class="thumb-wrapper">
-                <% if car.car_photos[car.cover_photo].nil? %>
-                  <div class="empty-thumbnail">
-                    <p>-- No picture --</p>
-                  </div>
-                <% else %>
-                  <div class="pic-thumbnail" style="background-image: url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);"></div>
-                <% end %>
-              </div>
-              <div class="car-label">
-                <p><%= "#{car.make} #{car.model} (#{car.year})" %></p>
-              </div>
-              <div class="car-details">
-                <p><i class="fas fa-users"></i><%= " #{car.number_seats}  " %><i class="  fas fa-euro-sign"></i><%= " #{car.price_day}" %><i class="  fas fa-map-marker-alt"></i><%= " #{car.location}" %></p>
-              </div>
-
-            </div>
+  <div class="row">
+    <% @cars.each do |car| %>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 full-padded">
+      <%= link_to car_path(car) do %>
+      <div class="card">
+        <div class="thumb-wrapper">
+          <% if car.car_photos[car.cover_photo].nil? %>
+          <div class="empty-thumbnail">
+            <p>-- No picture --</p>
+          </div>
+          <% else %>
+          <div class="pic-thumbnail" style="background-image: url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);"></div>
           <% end %>
         </div>
+        <div class="car-label">
+          <p><%= "#{car.make} #{car.model} (#{car.year})" %></p>
+        </div>
+        <div class="car-details">
+          <p><i class="fas fa-users"></i><%= " #{car.number_seats}  " %><i class="  fas fa-euro-sign"></i><%= " #{car.price_day}" %><i class="  fas fa-map-marker-alt"></i><%= " #{car.location}" %></p>
+        </div>
+
+      </div>
       <% end %>
     </div>
+    <% end %>
   </div>
 
   <div class="text-center">
     <%= link_to "Add a new car", new_car_path, class: "btn" %>
   </div>
 </div>
-
-
