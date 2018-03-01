@@ -7,7 +7,6 @@ body{
 
 .text-center {
   // font-family: 'Lobster', cursive;
-  margin-top: 30px;
   margin-bottom: 20px;
   font-size: 50px;
   color: rgb(125, 30, 27);
@@ -23,10 +22,12 @@ body{
   background-color: white;
   border-radius: 3px;
   position: relative;
+  text-decoration:none !important;
 }
 
 .full-padded {
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 
@@ -51,6 +52,7 @@ a:hover {
   }
   .card{
     box-shadow: 7px 7px 4px  rgba(0,0,0,0.2);
+    text-decoration: none !important;
   }
 }
 
@@ -121,6 +123,10 @@ a:hover {
   margin-top: 10px;
 }
 
+.container-show {
+  padding-left: 200px !important;
+}
+
 .container .car-text {
   padding-left: 200px;
 }
@@ -178,6 +184,7 @@ a:hover {
   font-size: 15px;
   padding: 10px;
   margin: 5px;
+  border-radius: 3px;
 }
 
 .btn-back:hover {
@@ -221,4 +228,16 @@ a:hover {
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
-
+.car-icons {
+  font-size: 18px;
+  font-family: 'Cabin', sans-serif;
+  color: rgb(130, 130, 130);
+  text-align: center;
+  // padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // padding-left: 50px;
+  padding-right: 400px;
+  margin-top: 20px;
+}
