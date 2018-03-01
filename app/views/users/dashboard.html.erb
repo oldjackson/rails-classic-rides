@@ -29,9 +29,10 @@
           No cars yet...
           <% else %>
           <% @user.cars.each do |car| %>
-          <div class="car" style="border: solid blue 2px; display: flex; justify-content: space-around; padding: 15px;">
+          <div class="car" style="border: solid blue 2px; display: flex; justify-content: space-between; padding: 15px;">
             <%= link_to car_path(car) do %>
-            <div class="card">
+            <div class="card" style="width: 300px; text-align: center">
+              <h4 style="font-family: $body-font !important"><%= "#{car.make} #{car.model}" %></h4>
               <div class="thumb-wrapper">
                 <% if car.car_photos[car.cover_photo].nil? %>
                 <div class="empty-thumbnail">
@@ -41,9 +42,16 @@
                 <div class="pic-thumbnail" style="background-image: url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);"></div>
                 <% end %>
               </div>
-              <%= link_to "Change cover pic", "#", class: "btn-sm" %>
+              <div>
+                <%= link_to "Change cover pic", "#", class: "btn-sm" %>
+              </div>
             </div>
             <% end %>
+            <div class="calendar">
+              <%= month_calendar do |date| %>
+                <%= date.day %>
+              <% end %>
+            </div>
             <%= link_to "Remove car", car_path(car), class: "btn-sm", method: :delete %>
           </div>
           <% end %>
