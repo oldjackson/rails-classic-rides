@@ -1,25 +1,10 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
-  # def index
-  #   @cars = Car.all
+
   def index
-    make_cars = Car.all
-    model_cars = Car.all
-    location_cars = Car.all
-
-    if params[:make]
-      make_cars = Car.where('LOWER(make) LIKE LOWER(?)', "%#{params[:make]}%")
-    end
-    if params[:model]
-      model_cars = Car.where('LOWER(model) LIKE LOWER(?)', "%#{params[:model]}%")
-    end
-    if params[:location]
-      location_cars = Car.where('LOWER(location) LIKE LOWER(?)', "%#{params[:location]}%")
-    end
-
-    @cars = make_cars & model_cars & location_cars
-
+    binding.pry
+    @cars = params[:search] == "" ? Car.all : Car.search(params[:search])
   end
 
   def show

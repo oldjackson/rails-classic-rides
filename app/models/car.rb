@@ -12,4 +12,10 @@ class Car < ApplicationRecord
   validates :number_seats, presence: true, inclusion: {in: [2,3,4,5,6]}
   validates :cover_photo, numericality: { greater_than: -1}
 
+  include PgSearch
+  pg_search_scope :search,
+    against: [ :make, :model, :location ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
