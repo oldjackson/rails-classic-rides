@@ -21,7 +21,7 @@ class CarsController < ApplicationController
   end
 
   def create
-    photo= CarPhoto.new(params[:photo])
+    # binding.pry
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
@@ -40,7 +40,7 @@ class CarsController < ApplicationController
   end
 
   def destroy
-    binding.pry
+    # binding.pry
     @car.destroy
     redirect_to cars_path
   end
@@ -52,7 +52,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:make, :model, :year, :description, :price_day, :location, :number_seats, :photo)
+    params.require(:car).permit(:make, :model, :year, :description, :price_day, :location, :number_seats, car_photos_attributes: [:id, :photo, :photo_cache, :_destroy])
   end
 
 

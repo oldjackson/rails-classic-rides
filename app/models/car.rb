@@ -1,7 +1,7 @@
 class Car < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  has_many :car_photos
+  has_many :car_photos, dependent: :destroy
 
   validates :make, presence: true
   validates :model, presence: true
@@ -18,4 +18,7 @@ class Car < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  accepts_nested_attributes_for :car_photos, reject_if: :all_blank, allow_destroy: true
+
 end

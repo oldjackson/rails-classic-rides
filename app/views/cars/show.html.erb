@@ -7,7 +7,7 @@
       </div>
     <% else %>
       <div class="car-photo text-center">
-        <%= cl_image_tag @car.car_photos[@car.cover_photo].photo, height: 500, width: 700, crop: :fill, :radius=>50 %>
+        <%= cl_image_tag @car.car_photos[1].photo, height: 500, width: 700, crop: :fill, :radius=>50 %>
       </div>
     <% end %>
   </div>

@@ -1254,6 +1254,10 @@ coa@~1.0.1:
   dependencies:
     q "^1.1.2"
 
+"cocoon@github:nathanvda/cocoon":
+  version "0.0.0"
+  resolved "https://codeload.github.com/nathanvda/cocoon/tar.gz/05435fb34a6c23a165befa5d381f5ae32f16a6a3"
+
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
