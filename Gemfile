@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'omniauth-facebook'
 
 gem 'faker'
 gem 'pg_search'
