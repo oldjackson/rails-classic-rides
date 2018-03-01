@@ -23,6 +23,8 @@ gem 'devise-bootstrap-views'
 
 gem 'faker'
 gem 'pg_search'
+gem "geocoder"
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

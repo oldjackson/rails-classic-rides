@@ -3,7 +3,16 @@ class CarsController < ApplicationController
 
 
   def index
-    @cars = params[:search].nil? || params[:search].strip.empty? ? Car.all : Car.search(params[:search])
+    # @cars = params[:search].nil? || params[:search].strip.empty? ? Car.all : Car.search(params[:search])
+    @cars = Car.where.not(latitude: nil, longitude: nil)
+
+    @markers = @cars.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   def show
