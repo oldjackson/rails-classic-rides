@@ -3,7 +3,6 @@ class CarsController < ApplicationController
 
 
   def index
-    binding.pry
     @cars = params[:search] == "" ? Car.all : Car.search(params[:search])
   end
 
