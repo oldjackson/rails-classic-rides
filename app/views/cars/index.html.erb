@@ -16,10 +16,10 @@
     </div>
     <!-- <br> -->
 
-    <div class="container">
+  <div class="container">
     <div class="row">
       <% @cars.each do |car| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 full-padded">
+        <div class="col-xs-12 col-sm-4 full-padded">
           <%= link_to car_path(car) do %>
             <div class="card">
               <div class="thumb-wrapper">
@@ -28,14 +28,26 @@
                     <p>-- No picture --</p>
                   </div>
                 <% else %>
-                  <div class="pic-thumbnail" style="background-image: url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);"></div>
+                  <div class="pic-thumbnail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);">
+
+                    <div class="pic-location">
+                      <p><i class="  fas fa-map-marker-alt"></i><%= " #{car.location}" %></p>
+                    </div>
+                    <div class="pic-price">
+                      <p><i class="  fas fa-euro-sign"></i><%= " #{car.price_day}" %></p>
+                    </div>
+
+                  </div>
                 <% end %>
               </div>
               <div class="car-label">
                 <p><%= "#{car.make} #{car.model} (#{car.year})" %></p>
               </div>
               <div class="car-details">
-                <p><i class="fas fa-users"></i><%= " #{car.number_seats}  " %><i class="  fas fa-euro-sign"></i><%= " #{car.price_day}" %><i class="  fas fa-map-marker-alt"></i><%= " #{car.location}" %></p>
+                <p><i class="fas fa-users"></i><%= " #{car.number_seats}  " %></p>
+                <p><i class="far fa-circle"></i> <%= car.driver_left ? "Left" : "Right" %></p>
+                <p><i class="fas fa-user"></i> <%= car.chauffeur ? "Yes" : "No" %></p>
+                <p><i class="fas fa-car"></i> <%= car.automatic ? "Automatic" : "Manual" %></p>
               </div>
 
             </div>
@@ -45,9 +57,9 @@
     </div>
   </div>
 
-  <div class="text-center">
+<!--   <div class="text-center">
     <%= link_to "Add a new car", new_car_path, class: "btn" %>
-  </div>
+  </div> -->
 </div>
 
 
