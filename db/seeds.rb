@@ -69,7 +69,7 @@ car_photos_url = ['https://assets.hemmings.com/story_image/605267-1000-0',\
 
 
 cars = []
-location = ["Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan"]
+location = ["Lisbon", "Milan", "Rome", "Milan", "Rome", "Milan", "Rome", "Milan", "Rome", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan", "Lisbon", "Milan"]
 
 (0...20).each do |i|
 
