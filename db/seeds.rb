@@ -56,7 +56,7 @@ car_photos_url = ['https://assets.hemmings.com/story_image/605267-1000-0',\
     'http://classicinvest.com/wp-content/uploads/2012/05/DSCN04453.jpg',\
     'https://rmsothebys-cache.azureedge.net/7/3/c/1/a/c/73c1acfacedfdd8b4ef6a6bc67a48b5645cfd6a2.jpg',\
     'https://rmsothebys-cache.azureedge.net/3/1/b/f/5/5/31bf5550fb49732c2ce4a0db3ef302d2aa1a1d2c.jpg',\
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Alfa_Romeo_Giulia_Super.jpg/1200px-Alfa_Romeo_Giulia_Super.jpg',\
+    'https://gammanine.files.wordpress.com/2011/04/dsc_7389-edit.jpg',\
     'https://wallscover.com/images/ferrari-daytona-1.jpg',\
     'http://www.onallcylinders.com/wp-content/uploads/2017/07/20/1969-Dodge-Charger-RT-by-Terry-Shea-Parental-Guidance.jpg',\
     'https://upload.wikimedia.org/wikipedia/commons/9/9a/1957_Lancia_Aurelia_B24_-_red_-_fvl.jpg',\
