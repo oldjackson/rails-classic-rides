@@ -74,37 +74,37 @@
             </div>
             <div>
               <h3>Incoming booking</h3>
-              <%= link_to user_path(car.next_booking.user) do %>
-              <div style="text-align:center;">
-                <%= car.next_booking.user.first_name%> <%= car.next_booking.user.last_name%>
-                <div class="thumb-wrapper">
-                  <% if car.next_booking.user.photo.file.nil? %>
-                    <div class="empty-thumbnail-small">
-                      <p>-- No picture --</p>
-                    </div>
-                  <% else %>
-                    <div class="pic-thumbnail-small" style="background-image: url(<%= car.next_booking.user.photo.url(:thumbnail) %>);">
-                    </div>
-                  <% end %>
+              <% if !car.next_booking.nil? %>
+                <%= link_to user_path(car.next_booking.user) do %>
+                <div style="text-align:center;">
+                  <%= car.next_booking.user.first_name%> <%= car.next_booking.user.last_name%>
+                  <div class="thumb-wrapper">
+                    <% if car.next_booking.user.photo.file.nil? %>
+                      <div class="empty-thumbnail-small">
+                        <p>-- No picture --</p>
+                      </div>
+                    <% else %>
+                      <div class="pic-thumbnail-small" style="background-image: url(<%= car.next_booking.user.photo.url(:thumbnail) %>);">
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+                <% end %>
+                <%= link_to "#" do %>
+                  <div>
+                    <p>
+                      <%= car.next_booking.start_date.strftime("%d %B %Y") %> -
+                                  <%= car.next_booking.end_date.strftime("%d %B %Y") %>
+                    </p>
+                    <p>
+                      Status: <%= car.next_booking.status%>
+                    </p>
+                  </div>
+                <% end %>
+              <% else %>
+                <p>No bookings for your <%= "#{car.make} #{car.model}"%> just yet.</p>
               <% end %>
-              <%= link_to "#" do %>
-                <div>
-                  <p>
-                    <%= car.next_booking.start_date.strftime("%d %B %Y") %> -
-                                <%= car.next_booking.end_date.strftime("%d %B %Y") %>
-                  </p>
-                  <p>
-                    Status: <%= car.next_booking.status%>
-                  </p>
-                </div>
-              <% end %>
-
             </div>
-            <!-- <div style="position: absolute;bottom:20px;right:20px;"> -->
-
-            <!-- </div> -->
           </div>
           <% end %>
           <% end %>
