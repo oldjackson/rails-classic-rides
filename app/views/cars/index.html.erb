@@ -21,6 +21,7 @@
 
 
 <div class="container-map">
+  <div class="cards-container">
     <div class="row">
       <% @cars.each do |car| %>
         <div class="col-xs-12 col-sm-6 full-padded">
@@ -59,6 +60,7 @@
     </div>
 
     <% end %>
+    </div>
   </div>
   <div id="map" data-markers="<%= @markers.to_json %>"></div>
 </div>
