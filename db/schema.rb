@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20180301193859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cover_photo", default: 0
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 

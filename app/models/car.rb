@@ -19,6 +19,8 @@ class Car < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
   accepts_nested_attributes_for :car_photos, reject_if: :all_blank, allow_destroy: true
 
   def next_booking
@@ -29,5 +31,4 @@ class Car < ApplicationRecord
       b.start_date
     end
   end
-
 end

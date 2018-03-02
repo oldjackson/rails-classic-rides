@@ -69,8 +69,11 @@ car_photos_url = ['https://assets.hemmings.com/story_image/605267-1000-0',\
     'https://images.unsplash.com/photo-1498946168008-9b2e06e76ea0?ixlib=rb-0.3.5&s=25f0250733908eb56e99c20f4bafa866&auto=format&fit=crop&w=750&q=80',\
 ]
 
+
 cars = []
+
 locations = ["Rome", "Lisbon", "London", "Milan", "Madrid", "Rome", "Lisbon", "London", "Milan", "Madrid", "Rome", "Lisbon", "London", "Milan", "Madrid", "Rome", "Lisbon", "London", "Milan", "Madrid", "Rome"]
+
 
 (0...21).each do |i|
 
@@ -82,6 +85,7 @@ locations = ["Rome", "Lisbon", "London", "Milan", "Madrid", "Rome", "Lisbon", "L
     price_day: rand(400..700),
     number_seats: number_seats[i],
     description: description[i],
+
     user: users.sample
   )
   car.car_photos = [CarPhoto.create(remote_photo_url: car_photos_url[i])]
