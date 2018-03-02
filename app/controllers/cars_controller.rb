@@ -3,7 +3,8 @@ class CarsController < ApplicationController
 
 
   def index
-    @cars = params[:search].nil? || params[:search].strip.empty? ? Car.all : Car.search(params[:search])
+    cars = params[:search].nil? || params[:search].strip.empty? ? Car.all : Car.search(params[:search])
+    @cars = cars.reject{ |car| car.user == current_user }
   end
 
   def show
@@ -21,7 +22,6 @@ class CarsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
@@ -40,7 +40,6 @@ class CarsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @car.destroy
     redirect_to cars_path
   end

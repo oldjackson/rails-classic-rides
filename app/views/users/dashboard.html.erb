@@ -4,12 +4,12 @@
     <div id="profile" class="full-padded">
 
       <% if @user.photo.file.nil? %>
-      <div class="empty-picture"">
+      <div class="empty-picture-small"">
         <p>-- No picture --</p>
       </div>
       <% else %>
       <div class="user-photo text-center">
-        <%= cl_image_tag @user.photo, height: 270, width: 200, crop: :fill, :radius=>10 %>
+        <%= cl_image_tag @user.photo, height: 200, width: 150, crop: :fill, :radius=>10 %>
       </div>
       <% end %>
       <div id="info" class="full-padded">
@@ -21,38 +21,90 @@
         </div>
       </div>
       <div style="flex: 1 0 auto; border: red solid 2px;">
-        <div class="full-padded center">
-          <%= link_to "Add a new car", new_car_path, class: "btn-md" %>
+        <div class="full-padded" style="display: flex; justify-content: space-between;align-items: center;">
+          <!-- <div class="full-padded"> -->
+            <h1 style="margin:0;">Cars</h1>
+            <div >
+              <%= link_to "Add new car", new_car_path, class: "btn btn-md" %>
+            </div>
         </div>
         <div id="cars" style="border: green solid 2px;">
           <% if @user.cars.empty? %>
           No cars yet...
           <% else %>
           <% @user.cars.each do |car| %>
-          <div class="car" style="border: solid blue 2px; display: flex; justify-content: space-between; padding: 15px;">
-            <%= link_to car_path(car) do %>
-            <div class="card" style="width: 300px; text-align: center">
-              <h4 style="font-family: $body-font !important"><%= "#{car.make} #{car.model}" %></h4>
-              <div class="thumb-wrapper">
-                <% if car.car_photos[car.cover_photo].nil? %>
-                <div class="empty-thumbnail">
-                  <p>-- No picture --</p>
+          <div class="car" style="border: solid blue 2px; display: flex; justify-content: space-around; padding: 15px;position: relative;">
+            <div style="width: 250px;text-align: center">
+              <%= link_to car_path(car) do %>
+                <h4 style="font-family: $body-font !important"><%= "#{car.make} #{car.model}" %></h4>
+                <div class="thumb-wrapper">
+                  <% if car.car_photos[car.cover_photo].nil? %>
+                    <div class="empty-thumbnail">
+                      <p>-- No picture --</p>
+                    </div>
+                  <% else %>
+                    <div class="pic-thumbnail" style="background-image: url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);">
+                    </div>
+                  <% end %>
                 </div>
-                <% else %>
-                <div class="pic-thumbnail" style="background-image: url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);"></div>
-                <% end %>
-              </div>
-              <div>
-                <%= link_to "Change cover pic", "#", class: "btn-sm" %>
-              </div>
+              <% end %>
+              <%= link_to "Edit car", "#", class: "btn-sm" %>
+              <%= link_to "Remove car", car_path(car), class: "btn-sm btn-danger", method: :delete %>
             </div>
-            <% end %>
-            <div class="calendar">
-              <%= month_calendar do |date| %>
+            <div class="simple-calendar ">
+              <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: car.bookings) do |date, bookings| %>
+
                 <%= date.day %>
+
+                <% bookings.each do |booking| %>
+                  <% case booking.status %>
+                    <% when "pending" %>
+                        <i class="fas fa-square" style="color: orange;"></i>
+                    <% when "accepted" %>
+                      <i class="fas fa-square" style="color: green;"></i>
+                    <% when "declined" %>
+                      <i class="fas fa-square" style="color: gray;"></i>
+                    <% when "ongoing" %>
+                      <i class="fas fa-square" style="color: blue;"></i>
+                    <% when "completed" %>
+                      <i class="fas fa-square" style="color: black;"></i>
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
-            <%= link_to "Remove car", car_path(car), class: "btn-sm", method: :delete %>
+            <div>
+              <h3>Incoming booking</h3>
+              <%= link_to user_path(car.next_booking.user) do %>
+              <div style="text-align:center;">
+                <%= car.next_booking.user.first_name%> <%= car.next_booking.user.last_name%>
+                <div class="thumb-wrapper">
+                  <% if car.next_booking.user.photo.file.nil? %>
+                    <div class="empty-thumbnail-small">
+                      <p>-- No picture --</p>
+                    </div>
+                  <% else %>
+                    <div class="pic-thumbnail-small" style="background-image: url(<%= car.next_booking.user.photo.url(:thumbnail) %>);">
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+              <%= link_to "#" do %>
+                <div>
+                  <p>
+                    <%= car.next_booking.start_date.strftime("%d %B %Y") %> -
+                                <%= car.next_booking.end_date.strftime("%d %B %Y") %>
+                  </p>
+                  <p>
+                    Status: <%= car.next_booking.status%>
+                  </p>
+                </div>
+              <% end %>
+
+            </div>
+            <!-- <div style="position: absolute;bottom:20px;right:20px;"> -->
+
+            <!-- </div> -->
           </div>
           <% end %>
           <% end %>
