@@ -33,7 +33,7 @@
           No cars yet...
           <% else %>
           <% @user.cars.each do |car| %>
-          <div class="car" style="border: solid blue 2px; display: flex; justify-content: space-around; padding: 15px;position: relative;">
+          <div class="car" style="border: solid blue 2px; display: flex; justify-content: space-around; padding: 15px;position: relative; background-color: #e0e0e0;">
             <div style="width: 250px;text-align: center">
               <%= link_to car_path(car) do %>
                 <h4 style="font-family: $body-font !important"><%= "#{car.make} #{car.model}" %></h4>
@@ -72,7 +72,7 @@
                 <% end %>
               <% end %>
             </div>
-            <div>
+            <div style="text-align: center">
               <h3>Incoming booking</h3>
               <% if !car.next_booking.nil? %>
                 <%= link_to user_path(car.next_booking.user) do %>
@@ -90,17 +90,46 @@
                   </div>
                 </div>
                 <% end %>
-                <%= link_to "#" do %>
+
                   <div>
                     <p>
                       <%= car.next_booking.start_date.strftime("%d %B %Y") %> -
                                   <%= car.next_booking.end_date.strftime("%d %B %Y") %>
                     </p>
-                    <p>
-                      Status: <%= car.next_booking.status%>
-                    </p>
+                    <% case car.next_booking.status %>
+                      <% when "pending" %>
+                        <div class="div-booking-status pending">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                          <%= link_to "Approve", "#", class: "btn-sm btn-success" %>
+                          <%= link_to "Decline", "#", class: "btn-sm btn-danger" %>
+                        </div>
+                      <% when "accepted" %>
+                        <div class="div-booking-status accepted">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                          <%= link_to "Cancel", "#", class: "btn-sm btn-danger" %>
+                        </div>
+                      <% when "declined" %>
+                        <div class="div-booking-status declined">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                          <%= link_to "Approve", "#", class: "btn-sm btn-success" %>
+                        </div>
+                      <% when "ongoing" %>
+                        <div class="div-booking-status ongoing">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                        </div>
+                      <% when "completed" %>
+                        <div class="div-booking-status completed">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                        </div>
+                    <% end %>
+
                   </div>
-                <% end %>
+
               <% else %>
                 <p>No bookings for your <%= "#{car.make} #{car.model}"%> just yet.</p>
               <% end %>
