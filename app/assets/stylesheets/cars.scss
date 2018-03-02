@@ -11,7 +11,11 @@ body{
   font-size: 50px;
   color: rgb(125, 30, 27);
 }
-
+.container-map {
+  display: flex;
+  padding-left:20px;
+  padding-right: 20px;
+}
 .container h1{
   font-family: 'Lobster', cursive;
 }
@@ -211,8 +215,8 @@ a:hover {
 
 .pic-price {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
   font-size: 15px;
   text-transform: uppercase;
   color: white;
@@ -222,8 +226,8 @@ a:hover {
 
 .pic-location {
   position: absolute;
-  top: 35px;
-  left: 10px;
+  top: 45px;
+  left: 20px;
   font-size: 15px;
   text-transform: uppercase;
   color: white;
@@ -243,4 +247,19 @@ a:hover {
   // padding-left: 50px;
   padding-right: 400px;
   margin-top: 20px;
+}
+
+#map {
+  flex: 0 0 450px;
+  height: 70vh;
+  width: 25vw;
+  position: sticky !important;
+  top: 0 !important;
+  right: 0 !important;
+  margin-left: 20px;
+  z-index: 1; /* Stay on top */
+}
+
+.cards-container {
+  flex-grow: 1;
 }
