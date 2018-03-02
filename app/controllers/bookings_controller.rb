@@ -20,12 +20,20 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.status = 'accepted'
-    redirect_to dashboard_path
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      redirect_to dashboard_path, alert: "The booking could not be accepted"
+    end
   end
 
   def decline
     @booking.status ='declined'
-    redirect_to dashboard_path
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      redirect_to dashboard_path, alert: "The booking could not be declined"
+    end
   end
 
   private

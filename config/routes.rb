@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  get "/bookings/:id/accept", to: 'bookings#accept', as: 'accept_booking'
-  get "/bookings/:id/decline", to: 'bookings#decline', as: 'decline_booking'
+  get "/bookings/:id/accept", to: 'bookings#accept', as: 'accept'
+  get "/bookings/:id/decline", to: 'bookings#decline', as: 'decline'
 
   resources :users, only: [:show]
 

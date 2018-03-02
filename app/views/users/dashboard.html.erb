@@ -101,20 +101,20 @@
                         <div class="div-booking-status pending">
                         <div>
                           <%= car.next_booking.status.capitalize%></div>
-                          <%= link_to "Approve", "#", class: "btn-sm btn-success" %>
-                          <%= link_to "Decline", "#", class: "btn-sm btn-danger" %>
+                          <%= link_to "Accept", accept_path(car.next_booking), class: "btn-sm btn-success" %>
+                          <%= link_to "Decline", decline_path(car.next_booking), class: "btn-sm btn-danger" %>
                         </div>
                       <% when "accepted" %>
                         <div class="div-booking-status accepted">
                         <div>
                           <%= car.next_booking.status.capitalize%></div>
-                          <%= link_to "Cancel", "#", class: "btn-sm btn-danger" %>
+                          <%= link_to "Cancel", decline_path(car.next_booking), class: "btn-sm btn-danger" %>
                         </div>
                       <% when "declined" %>
                         <div class="div-booking-status declined">
                         <div>
                           <%= car.next_booking.status.capitalize%></div>
-                          <%= link_to "Approve", "#", class: "btn-sm btn-success" %>
+                          <%= link_to "Accept", accept_path(car.next_booking), class: "btn-sm btn-success" %>
                         </div>
                       <% when "ongoing" %>
                         <div class="div-booking-status ongoing">
