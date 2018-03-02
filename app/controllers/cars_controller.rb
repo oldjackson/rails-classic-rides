@@ -3,8 +3,8 @@ class CarsController < ApplicationController
 
 
   def index
-    # @cars = params[:search].nil? || params[:search].strip.empty? ? Car.all : Car.search(params[:search])
-    @cars = Car.where.not(latitude: nil, longitude: nil)
+    @cars = params[:search].nil? || params[:search].strip.empty? ? Car.all.where.not(latitude: nil, longitude: nil) : Car.search(params[:search]).where.not(latitude: nil, longitude: nil)
+    # @cars = Car.where.not(latitude: nil, longitude: nil)
 
     @markers = @cars.map do |car|
       {
