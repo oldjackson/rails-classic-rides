@@ -49,7 +49,7 @@ car_photos_url = ['https://assets.hemmings.com/story_image/605267-1000-0',\
     'https://www.carpixel.net/w/5c43caab635a9852f8319eed532d5d04/ferrari-testarossa-car-wallpaper-70775.jpg',\
     'https://www.classicdriver.com/sites/default/files/cars_images/113_1_1.jpg',\
     'https://rmsothebys-cache.azureedge.net/5/1/b/1/2/d/51b12dc834603e3992f790679c7941a76dca3852.jpg',\
-    'http://carphotos.cardomain.com/ride_images/3/2972/1801/32428400003_original.jpg',\
+    'http://capefearcorvettes.com/wp-content/uploads/2014/03/tion-widescreen-wallpaper-chevrolet-corvette-c3-stingray-1976-chevy-corvette-stingray-c3-chevrolet-corvette-c3-stingray-chevrolet-corvette-stingray-c3-co.jpg',\
     'http://cloudlakes.com/data_images/models/nissan-280z/nissan-280z-01.jpg',\
     'https://www.hagertyinsurance.co.uk/price-guide/Content/VehicleImages/Jaguar%20E%20Type%20S1%20FHC%20front.jpg',\
     'http://car-from-uk.com/ebay/carphotos/full/ebay268631.jpg',\
