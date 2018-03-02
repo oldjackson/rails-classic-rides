@@ -20,7 +20,7 @@
           <%= link_to "Change credentials...", "\#", class: "btn-sm" %>
         </div>
       </div>
-      <div style="flex: 1 0 auto; border: red solid 2px;">
+      <div style="flex: 1 0 auto;">
         <div class="full-padded" style="display: flex; justify-content: space-between;align-items: center;">
           <!-- <div class="full-padded"> -->
             <h1 style="margin:0;">Cars</h1>
@@ -28,12 +28,12 @@
               <%= link_to "Add new car", new_car_path, class: "btn btn-md" %>
             </div>
         </div>
-        <div id="cars" style="border: green solid 2px;">
+        <div id="cars">
           <% if @user.cars.empty? %>
           No cars yet...
           <% else %>
           <% @user.cars.each do |car| %>
-          <div class="car" style="border: solid blue 2px; display: flex; justify-content: space-around; padding: 15px;position: relative; background-color: #e0e0e0;">
+          <div class="car" style="display: flex; justify-content: space-around; padding: 15px; margin: 15px; position: relative; background-color: #e0e0e0;border-radius: 15px">
             <div style="width: 250px;text-align: center">
               <%= link_to car_path(car) do %>
                 <h4 style="font-family: $body-font !important"><%= "#{car.make} #{car.model}" %></h4>
