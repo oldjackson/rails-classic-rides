@@ -17,6 +17,10 @@
 }
 
 .card {
+  background-color: white;
+  border-radius: 3px;
+  position: relative;
+  text-decoration:none !important;
 }
 
 .full-padded {
@@ -32,10 +36,21 @@
   border-radius: 5px;
 }
 
+.empty-thumbnail-small, .pic-thumbnail-small {
+  height: 140px;
+  border-radius: 3px;
+}
+
 .empty-picture {
   height: 400px;
   width: 300px;
   border-radius: 10px;
+}
+
+.empty-picture-small {
+  height: 200px;
+  width: 150px;
+  border-radius: 8px;
 }
 
 a:hover {
@@ -50,7 +65,7 @@ a:hover {
   }
 }
 
-.empty-thumbnail, .empty-picture {
+.empty-thumbnail, .empty-picture, .empty-thumbnail-small, .empty-picture-small {
   border: 1px solid black;
   display:flex;
   align-items: center;
@@ -60,7 +75,7 @@ a:hover {
   }
 }
 
-.pic-thumbnail {
+.pic-thumbnail, .pic-thumbnail-small {
   background-size: cover;
   background-position: center;
 }
@@ -190,4 +205,35 @@ a:hover {
   font-family: 'Cabin', sans-serif;
   font-size: 15px !important;
   padding: 5px !important;
+}
+
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    font-weight: bold;
+    background-color: yellow !important;
+    border-left: black dotted 1px;
+    border-right: black dotted 1px;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {
+  }
+
 }

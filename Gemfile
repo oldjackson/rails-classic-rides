@@ -25,6 +25,8 @@ gem 'omniauth-facebook'
 gem 'faker'
 gem 'pg_search'
 gem "geocoder"
+gem 'cocoon'
+gem 'simple_calendar'
 
 
 group :development do

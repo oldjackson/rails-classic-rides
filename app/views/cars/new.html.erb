@@ -1,20 +1,5 @@
 <div class="container col-sm-4 col-sm-offset-4">
-   <h2>Add a new car</h2>
-<%= simple_form_for @car do |f| %>
-  <div class="form-inputs">
-    <%= f.input :make, required: true %>
-    <%= f.input :model, required: true %>
-    <%= f.input :year, required: true %>
-    <%= f.input :description, required: true %>
-    <%= f.input :price_day, required: true %>
-    <%= f.input :location, required: true %>
-    <%= f.input :number_seats, required: true %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Create Car" %>
-  </div>
-<% end %>
-
+   <%= render 'form' %>
 </div>
 
 

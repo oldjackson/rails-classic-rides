@@ -1,7 +1,7 @@
 class Car < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  has_many :car_photos
+  has_many :car_photos, dependent: :destroy
 
   validates :make, presence: true
   validates :model, presence: true
@@ -21,4 +21,14 @@ class Car < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  accepts_nested_attributes_for :car_photos, reject_if: :all_blank, allow_destroy: true
+
+  def next_booking
+    return nil if bookings.empty?
+
+    future_bookings = bookings.select{ |b| b.start_date >= Date.today }
+    future_bookings.min_by do |b|
+      b.start_date
+    end
+  end
 end
