@@ -56,6 +56,7 @@ GEM
     cloudinary (1.8.3)
       aws_cf_signer
       rest-client
+    cocoon (1.2.11)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
@@ -196,6 +197,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    simple_calendar (2.2.7)
+      rails (>= 3.0)
     simple_form (3.5.1)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
@@ -244,6 +247,7 @@ DEPENDENCIES
   bootstrap-sass
   carrierwave (~> 1.2)
   cloudinary
+  cocoon
   devise
   devise-bootstrap-views
   faker
@@ -261,6 +265,7 @@ DEPENDENCIES
   rails (= 5.1.5)
   redis
   sass-rails
+  simple_calendar
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

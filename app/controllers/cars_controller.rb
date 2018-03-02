@@ -3,7 +3,8 @@ class CarsController < ApplicationController
 
 
   def index
-    @cars = params[:search].nil? || params[:search].strip.empty? ? Car.all : Car.search(params[:search])
+    cars = params[:search].nil? || params[:search].strip.empty? ? Car.all : Car.search(params[:search])
+    @cars = cars.reject{ |car| car.user == current_user }
   end
 
   def show
@@ -40,7 +41,7 @@ class CarsController < ApplicationController
 
   def destroy
     @car.destroy
-    redirect_to cars
+    redirect_to cars_path
   end
 
   private
@@ -50,7 +51,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:make, :model, :year, :description, :price_day, :location, :number_seats, :photo)
+    params.require(:car).permit(:make, :model, :year, :description, :price_day, :location, :number_seats, car_photos_attributes: [:id, :photo, :photo_cache, :_destroy])
   end
 
 
