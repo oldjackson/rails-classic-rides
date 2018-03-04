@@ -1,53 +1,50 @@
   <div>
     <% if @car.car_photos[@car.cover_photo].nil? %>
-      <div class="empty-picture"">
-        <p>-- No picture --</p>
-      </div>
+    <div class="empty-picture"">
+      <p>-- No picture --</p>
+    </div>
     <% else %>
-      <div class="car-photo text-center">
-        <%= cl_image_tag @car.car_photos[@car.cover_photo].photo, height: 400, width: 1280, crop: :fill, :gravity=>"auto" %>
-      </div>
+    <% img_url = @car.car_photos[@car.cover_photo].photo.url %>
+    <% img_url.insert(img_url.rindex('image/upload/')+'image/upload/'.length,"w_1280,h_400,c_fill,g_auto/") %>
+    <div class="car-photo text-center" style="background-image: url(<%= img_url %>);"></div>
     <% end %>
   </div>
 
-    <div class="container-show car-text">
+  <div class="container">
+    <div>
+      <%= link_to "Back to Search Results", :back, class: "btn-back btn-sm" %>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-8 full-padded">
         <div class="car-information">
-          <div class="row">
-            <h1><%= "#{@car.year} #{@car.make} #{@car.model}" %></h1>
+          <!-- <div class="car-information"> -->
+            <!-- <div class="row"> -->
+              <h1><%= "#{@car.year} #{@car.make} #{@car.model}" %></h1>
+              <!-- </div> -->
+           <!--  </div> -->
+            <div class="car-icons">
+              <p><i class="fas fa-users"></i><%= " #{@car.number_seats}  " %></p>
+              <p><i class="far fa-circle"></i> <%= @car.driver_left ? "Left" : "Right" %></p>
+              <p><i class="fas fa-user"></i> <%= @car.chauffeur ? "Yes" : "No" %></p>
+              <p><i class="fas fa-car"></i> <%= @car.automatic ? "Automatic" : "Manual" %></p>
+              <p><i class="  fas fa-map-marker-alt"></i><%= " #{@car.location}" %></p>
+            </div>
+
+            <div class="card-description">
+              <h5><%= "The owner #{@car.user.first_name} says..."%></h5>
+              <p style="text-indent: 50px; font-size: 30px;"><%= "\"#{@car.description}\"" %></p>
+            </div>
+            <br>
+
+          </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 full-padded">
+          <div class="booking-form">
+            <br>
+            <p>Book this car at <strong><%= @car.price_day %>€ per day</strong></p>
+            <%= render 'bookings/form', booking: @booking, car: @car %>
           </div>
         </div>
-      <div class="car-icons">
-        <p><i class="fas fa-users"></i><%= " #{@car.number_seats}  " %></p>
-        <p><i class="far fa-circle"></i> <%= @car.driver_left ? "Left" : "Right" %></p>
-        <p><i class="fas fa-user"></i> <%= @car.chauffeur ? "Yes" : "No" %></p>
-        <p><i class="fas fa-car"></i> <%= @car.automatic ? "Automatic" : "Manual" %></p>
-        <p><i class="  fas fa-map-marker-alt"></i><%= " #{@car.location}" %></p>
       </div>
-
-      <div class="card-description">
-        <h5><%= "The owner #{@car.user.first_name} says..."%></h5>
-        <p style="text-indent: 50px; font-size: 30px;"><%= "\"#{@car.description}\"" %></p>
-        <h6><i class="fas fa-euro-sign"></i><%= " #{@car.price_day}  - " %><i class="fas fa-map-marker-alt"></i><%= " #{@car.location}" %></h6>
-      </div>
-<br>
-
-      <div>
-        <%= link_to "Book Your Classic Ride", new_car_booking_path(@car), class: "btn" %>
-      </div>
-      <br>
-    <div>
-      <%= link_to "Back to Search Results", :back, class: "btn-back" %>
     </div>
-    <br>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
