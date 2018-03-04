@@ -28,6 +28,8 @@ class CarsController < ApplicationController
   end
 
   def show
+    # needed to show the booking form along with the existing car data in the view
+    @booking = Booking.new
   end
 
   def new

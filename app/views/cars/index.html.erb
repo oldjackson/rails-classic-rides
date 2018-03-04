@@ -33,7 +33,7 @@
                     <p>-- No picture --</p>
                   </div>
                 <% else %>
-                  <div class="pic-thumbnail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);">
+                  <div class="pic-thumbnail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url(<%= car.car_photos[car.cover_photo].photo.url(:car_thumbnail) %>);">
 
                     <div class="pic-location">
                       <p><i class="  fas fa-map-marker-alt"></i><%= " #{car.location}" %></p>
