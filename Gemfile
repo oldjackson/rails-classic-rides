@@ -20,8 +20,14 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'omniauth-facebook'
 
 gem 'faker'
+gem 'pg_search'
+gem "geocoder"
+gem 'cocoon'
+gem 'simple_calendar'
+gem 'bootstrap-datepicker-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

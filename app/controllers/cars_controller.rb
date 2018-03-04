@@ -1,24 +1,29 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
-  # def index
-  #   @cars = Car.all
+
   def index
-    make_cars = Car.all
-    model_cars = Car.all
-    location_cars = Car.all
+    # @cars = params[:search].nil? || params[:search].strip.empty? ? Car.all.where.not(latitude: nil, longitude: nil) : Car.search(params[:search]).where.not(latitude: nil, longitude: nil)
+    # # @cars = Car.where.not(latitude: nil, longitude: nil)
 
-    if params[:make]
-      make_cars = Car.where('LOWER(make) LIKE LOWER(?)', "%#{params[:make]}%")
-    end
-    if params[:model]
-      model_cars = Car.where('LOWER(model) LIKE LOWER(?)', "%#{params[:model]}%")
-    end
-    if params[:location]
-      location_cars = Car.where('LOWER(location) LIKE LOWER(?)', "%#{params[:location]}%")
-    end
+    # @markers = @cars.map do |car|
+    #   {
+    #     lat: car.latitude,
+    #     lng: car.longitude#,
+    #     # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+    #   }
+    # end
 
-    @cars = make_cars & model_cars & location_cars
+    cars = params[:search].nil? || params[:search].strip.empty? ? Car.all.where.not(latitude: nil, longitude: nil) : Car.search(params[:search]).where.not(latitude: nil, longitude: nil)
+    @cars = cars.reject{ |car| car.user == current_user }
+
+        @markers = @cars.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
 
   end
 
@@ -26,7 +31,11 @@ class CarsController < ApplicationController
   end
 
   def new
-    @car = Car.new
+    if user_signed_in?
+      @car = Car.new
+    else
+      redirect_to cars_path, alert: "To post a new car for renting you need to sign in."
+    end
   end
 
   def edit
@@ -52,7 +61,7 @@ class CarsController < ApplicationController
 
   def destroy
     @car.destroy
-    redirect_to cars
+    redirect_to cars_path
   end
 
   private
@@ -62,7 +71,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:make, :model, :year, :description, :price_day, :location, :number_seats, :photo)
+    params.require(:car).permit(:make, :model, :year, :description, :price_day, :location, :number_seats, car_photos_attributes: [:id, :photo, :photo_cache, :_destroy])
   end
 
 

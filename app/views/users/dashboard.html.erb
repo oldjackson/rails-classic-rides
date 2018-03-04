@@ -1,0 +1,143 @@
+<div class="container">
+  <h1><%= "Hi #{@user.first_name}!" %></h1>
+  <div class="main-container full-padded">
+    <div id="profile" class="full-padded">
+
+      <% if @user.photo.file.nil? %>
+      <div class="empty-picture-small"">
+        <p>-- No picture --</p>
+      </div>
+      <% else %>
+      <div class="user-photo text-center">
+        <%= cl_image_tag @user.photo, height: 200, width: 150, crop: :fill, :radius=>10 %>
+      </div>
+      <% end %>
+      <div id="info" class="full-padded">
+        <!-- <ul> -->
+          <p><%= "First name: #{@user.first_name}" %></p>
+          <p><%= "Last name: #{@user.last_name}" %></p>
+          <!-- </ul> -->
+          <%= link_to "Change credentials...", "\#", class: "btn-sm" %>
+        </div>
+      </div>
+      <div style="flex: 1 0 auto;">
+        <div class="full-padded" style="display: flex; justify-content: space-between;align-items: center;">
+          <!-- <div class="full-padded"> -->
+            <h1 style="margin:0;">Cars</h1>
+            <div >
+              <%= link_to "Add new car", new_car_path, class: "btn btn-md" %>
+            </div>
+        </div>
+        <div id="cars">
+          <% if @user.cars.empty? %>
+          No cars yet...
+          <% else %>
+          <% @user.cars.each do |car| %>
+          <div class="car" style="display: flex; justify-content: space-around; padding: 15px; margin: 15px; position: relative; background-color: #e0e0e0;border-radius: 15px">
+            <div style="width: 250px;text-align: center">
+              <%= link_to car_path(car) do %>
+                <h4 style="font-family: $body-font !important"><%= "#{car.make} #{car.model}" %></h4>
+                <div class="thumb-wrapper">
+                  <% if car.car_photos[car.cover_photo].nil? %>
+                    <div class="empty-thumbnail">
+                      <p>-- No picture --</p>
+                    </div>
+                  <% else %>
+                    <div class="pic-thumbnail" style="background-image: url(<%= car.car_photos[car.cover_photo].photo.url(:thumbnail) %>);">
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+              <%= link_to "Edit car", "#", class: "btn-sm" %>
+              <%= link_to "Remove car", car_path(car), class: "btn-sm btn-danger", method: :delete %>
+            </div>
+            <div class="simple-calendar ">
+              <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: car.bookings) do |date, bookings| %>
+
+                <%= date.day %>
+
+                <% bookings.each do |booking| %>
+                  <% case booking.status %>
+                    <% when "pending" %>
+                        <i class="fas fa-square" style="color: orange;"></i>
+                    <% when "accepted" %>
+                      <i class="fas fa-square" style="color: green;"></i>
+                    <% when "declined" %>
+                      <i class="fas fa-square" style="color: gray;"></i>
+                    <% when "ongoing" %>
+                      <i class="fas fa-square" style="color: blue;"></i>
+                    <% when "completed" %>
+                      <i class="fas fa-square" style="color: black;"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+            <div style="text-align: center">
+              <h3>Incoming booking</h3>
+              <% if !car.next_booking.nil? %>
+                <%= link_to user_path(car.next_booking.user) do %>
+                <div style="text-align:center;">
+                  <%= car.next_booking.user.first_name%> <%= car.next_booking.user.last_name%>
+                  <div class="thumb-wrapper">
+                    <% if car.next_booking.user.photo.file.nil? %>
+                      <div class="empty-thumbnail-small">
+                        <p>-- No picture --</p>
+                      </div>
+                    <% else %>
+                      <div class="pic-thumbnail-small" style="background-image: url(<%= car.next_booking.user.photo.url(:thumbnail) %>);">
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <% end %>
+
+                  <div>
+                    <p>
+                      <%= car.next_booking.start_date.strftime("%d %B %Y") %> -
+                                  <%= car.next_booking.end_date.strftime("%d %B %Y") %>
+                    </p>
+                    <% case car.next_booking.status %>
+                      <% when "pending" %>
+                        <div class="div-booking-status pending">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                          <%= link_to "Accept", accept_path(car.next_booking), class: "btn-sm btn-success" %>
+                          <%= link_to "Decline", decline_path(car.next_booking), class: "btn-sm btn-danger" %>
+                        </div>
+                      <% when "accepted" %>
+                        <div class="div-booking-status accepted">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                          <%= link_to "Cancel", decline_path(car.next_booking), class: "btn-sm btn-danger" %>
+                        </div>
+                      <% when "declined" %>
+                        <div class="div-booking-status declined">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                          <%= link_to "Accept", accept_path(car.next_booking), class: "btn-sm btn-success" %>
+                        </div>
+                      <% when "ongoing" %>
+                        <div class="div-booking-status ongoing">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                        </div>
+                      <% when "completed" %>
+                        <div class="div-booking-status completed">
+                        <div>
+                          <%= car.next_booking.status.capitalize%></div>
+                        </div>
+                    <% end %>
+
+                  </div>
+
+              <% else %>
+                <p>No bookings for your <%= "#{car.make} #{car.model}"%> just yet.</p>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

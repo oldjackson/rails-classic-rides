@@ -1,28 +1,22 @@
-// Place all the styles related to the Cars controller here.
+// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body{
-  // background-color: black !important;
-}
-
 .text-center {
-  // font-family: 'Lobster', cursive;
+  margin-top: 30px;
   margin-bottom: 20px;
   font-size: 50px;
   color: rgb(125, 30, 27);
 }
-.container-map {
+
+.main-container {
   display: flex;
-  padding-left:20px;
-  padding-right: 20px;
-}
-.container h1{
-  font-family: 'Lobster', cursive;
 }
 
+.container h1{
+  font-family: $body-font;
+}
 
 .card {
-  // margin: 10px 0;
   background-color: white;
   border-radius: 3px;
   position: relative;
@@ -30,21 +24,33 @@ body{
 }
 
 .full-padded {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px;
 }
 
-
+.thumb-wrapper{
+  padding: 10px;
+}
 
 .empty-thumbnail, .pic-thumbnail {
   height: 226px;
+  border-radius: 5px;
+}
+
+.empty-thumbnail-small, .pic-thumbnail-small {
+  height: 140px;
   border-radius: 3px;
 }
 
 .empty-picture {
-  height: 600px;
-  width: 800px;
-  border-radius: 3px;
+  height: 400px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.empty-picture-small {
+  height: 200px;
+  width: 150px;
+  border-radius: 8px;
 }
 
 a:hover {
@@ -56,11 +62,10 @@ a:hover {
   }
   .card{
     box-shadow: 7px 7px 4px  rgba(0,0,0,0.2);
-    text-decoration: none !important;
   }
 }
 
-.empty-thumbnail, .empty-picture {
+.empty-thumbnail, .empty-picture, .empty-thumbnail-small, .empty-picture-small {
   border: 1px solid black;
   display:flex;
   align-items: center;
@@ -70,16 +75,16 @@ a:hover {
   }
 }
 
-.pic-thumbnail {
+.pic-thumbnail, .pic-thumbnail-small {
   background-size: cover;
   background-position: center;
 }
 
-.car-label{
-  padding-top: 5px;
+.user-label{
+
   padding-bottom: 5px;
   text-align: center;
-  color: rgb(100, 100, 100);
+  color: rgb(230, 230, 230);
   p{
     margin: 0;
     font-size: 20px;
@@ -88,17 +93,12 @@ a:hover {
   }
 }
 
-.car-details {
+.user-details {
   font-size: 15px;
   font-family: 'Cabin', sans-serif;
-  color: rgb(130, 130, 130);
+  color: rgb(200, 200, 200);
   text-align: center;
   padding-bottom: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 .btn{
@@ -106,7 +106,15 @@ a:hover {
   background-color: rgb(125, 30, 27);
   font-family: 'Cabin', sans-serif;
   font-size: 20px !important;
-  padding: 12px !important;
+  padding: 20px !important;
+}
+
+.btn-md{
+  color: white;
+  background-color: rgb(125, 30, 27);
+  font-family: 'Cabin', sans-serif;
+  font-size: 15px !important;
+  padding: 10px !important;
 }
 
 .btn:hover {
@@ -114,24 +122,17 @@ a:hover {
   background-color: rgba(125, 30, 27, 0.9);
 }
 
-.car-photo {
+.user-photo {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 3px;
-  margin-top: 0px !important;
+  border-radius: 5px
 }
 
-.car-information h1 {
+.user-information h1 {
+  // font-family: 'Lobster', cursive;
   font-size: 45px;
   margin-top: 10px;
-  display: flex !important;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.container-show {
-  padding-left: 223px !important;
 }
 
 .container .car-text {
@@ -139,7 +140,7 @@ a:hover {
 }
 .card-description h4 {
   font-family: 'Cabin', sans-serif;
-  font-size: 35px;
+  font-size: 35px ;
   color: black;
   text-decoration-line: underline;
   // text-decoration-style: wavy;
@@ -152,15 +153,15 @@ a:hover {
   color: rgb(100, 100, 100);
   // text-shadow: 1px 1px 15px #000000;
 }
-// .card-description h5 {
-//   font-size: 25px ;
-// }
-// .card-description h6 {
-//   font-size: 20px ;
-// }
+.card-description h5 {
+  font-size: 25px ;
+}
+.card-description h6 {
+  font-size: 20px ;
+}
 
 .card-description p {
-  font-size: 25px !important;
+  font-size: 18px ;
 }
 
 .card-details h5 {
@@ -191,7 +192,6 @@ a:hover {
   font-size: 15px;
   padding: 10px;
   margin: 5px;
-  border-radius: 3px;
 }
 
 .btn-back:hover {
@@ -207,59 +207,72 @@ a:hover {
   padding: 5px !important;
 }
 
-.search {
-  font-family: 'Cabin', sans-serif;
-  color: rgb(100, 100, 100);
-  font-size: 15px ;
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    font-weight: bold;
+    background-color: yellow !important;
+    border-left: black dotted 1px;
+    border-right: black dotted 1px;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {
+  }
+
 }
 
-.pic-price {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 15px;
-  text-transform: uppercase;
-  color: white;
-  font-family: 'Cabin', sans-serif;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-}
-
-.pic-location {
-  position: absolute;
-  top: 45px;
-  left: 20px;
-  font-size: 15px;
-  text-transform: uppercase;
-  color: white;
-  font-family: 'Cabin', sans-serif;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-}
-
-.car-icons {
-  font-size: 18px;
-  font-family: 'Cabin', sans-serif;
-  color: rgb(130, 130, 130);
-  text-align: center;
-  // padding-bottom: 5px;
+// <div style="display: flex; justify-content: space-evenly; align-items: center;background-color: #4DA04E; padding: 5px; border-radius: 5px;">
+//                       <div style="font-size: 15px;"><%= car.next_booking.status.capitalize%></div>
+//                       <%= link_to "Approve", "#", class: "btn-sm btn-danger" %>
+//                     </div>
+.div-booking-status{
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: space-between;
-  // padding-left: 50px;
-  padding-right: 400px;
-  margin-top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  div {
+    font-size: 15px;
+  }
+  &.pending{
+    background-color: orange;
+  }
+  &.accepted{
+    background-color: #4DA04E;
+  }
+  &.declined{
+    background-color: #c0c0c0;
+    color: gray;
+  }
+  &.ongoing{
+    background-color: #2F6BFEFF;
+    color: white;
+  }
+  &.completed{
+    background-color: black;
+    color: white;
+  }
+  .btn-sm{
+    margin: 5px;
+  }
 }
 
-#map {
-  flex: 0 0 450px;
-  height: 70vh;
-  width: 25vw;
-  position: sticky !important;
-  top: 0 !important;
-  right: 0 !important;
-  margin-left: 20px;
-  z-index: 1; /* Stay on top */
-}
 
-.cards-container {
-  flex-grow: 1;
-}

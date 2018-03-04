@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <div class="header_h1">
-    <h1>Classic Rides</h1>
+  <div id="brand-text" class="header_h1">
+    <h1><%= link_to "Classic Rides", root_path, class: "header_h1" %></h1>
   </div>
 
   <!-- Right Navigation -->
@@ -13,16 +13,19 @@
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
-      </div>
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><%= link_to "Dashboard", dashboard_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      <% else %>
+        <%= link_to "Signin", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link"%>
+      <% end %>
     </div>
   </div>
 </div>
-
 
