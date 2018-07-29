@@ -8,13 +8,14 @@ class BookingsController < ApplicationController
   end
 
   def create
+    binding.pry
     @booking = Booking.new(booking_params)
     @booking.user = @user
     @booking.car = @car
     if @booking.save
       redirect_to car_path(@car), notice: "Your booking is pending confirmation"
     else
-      render :new
+      redirect_to car_path(@car), alert: "The booking could not be accepted"
     end
   end
 
