@@ -3,13 +3,17 @@
   <div class="main-container full-padded">
     <div id="profile" class="full-padded">
 
-      <% if @user.photo.file.nil? %>
+      <% if @user.photo.file.nil? && @user.facebook_picture_url.nil? %>
       <div class="empty-picture-small"">
         <p>-- No picture --</p>
       </div>
       <% else %>
       <div class="user-photo text-center">
-        <%= cl_image_tag @user.photo, height: 200, width: 150, crop: :fill, :radius=>10 %>
+        <% if @user.photo.file.nil? %>
+          <%= image_tag @user.facebook_picture_url, height: 200, width: 150 %>
+        <% else%>
+          <%= cl_image_tag @user.photo, height: 200, width: 150, crop: :fill, :radius=>10 %>
+        <% end%>
       </div>
       <% end %>
       <div id="info" class="full-padded">

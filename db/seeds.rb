@@ -21,7 +21,7 @@ users = []
 end
 
 makes = %w(Ford Ferrari Fiat Alpine Chevrolet Nissan Jaguar Alfa\ Romeo Mercedes-Benz BMW Mercedes-Benz Alfa Ferrari Dodge Lancia Maserati Ford Citroën De\ Tomaso Ford Porsche)
-models = %w(Mustang\ GT Testarossa Dino\ Coupé A110 Corvette 280Z E-type Giulia\ GT\ Junior 280SL 507 300SL Giulia\ TI\ Super 365\ Daytona Charger\ RT Aurelia\ B24 Ghibli GT40 DS Pantera Mustang\ Fastback Cayman)
+models = %w(Mustang\ GT Testarossa Dino\ Coupé A110 Corvette 280Z E-type Giulia\ GT\ Junior 280SL 507 300SL Giulia\ TI\ Super 365\ Daytona Charger\ RT Aurelia\ B24 Ghibli GT40 DS Pantera Mustang\ Fastback 356)
 years = [1968, 1986, 1977, 1970, 1978, 1976, 1962, 1966, 1970, 1959, 1956, 1972, 1970, 1969, 1962, 1971, 1966, 1960, 1972, 1965, 1962]
 number_seats = [4, 2, 4, 2, 2, 4, 2, 4, 2, 2, 2, 5, 2, 4, 2, 4, 2, 5, 2, 4, 4]
 description = ["Your muscle car of choice",\
@@ -44,7 +44,7 @@ description = ["Your muscle car of choice",\
   "La déesse",
   "An italoamerican feline",
   "A sleek classic",
-  "Das Auto...What else?"
+  "The mother of all Porsches"
 ]
 car_photos_url = ['https://assets.hemmings.com/story_image/605267-1000-0',\
     'https://www.carpixel.net/w/5c43caab635a9852f8319eed532d5d04/ferrari-testarossa-car-wallpaper-70775.jpg',\
